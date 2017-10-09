@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.AlertRule" table="ALERT_RULE">
+		<id column="ID_ALERT_RULE" name="id">
+			<generator class="native" />
+		</id>
+		<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" />
+		 <many-to-one class="com.techner.tau.server.domain.model.Alert" column="ID_ALERT" name="alert" />
+		<property column="START_DATE" name="startDate" type="timestamp" />
+		 <property column="END_DATE" name="endDate" type="timestamp" />
+		 <property column="MIN" name="min" type="double" />
+         <property column="MAX" name="max" type="double" />
+	      <property column="SMS_NOTIFICATION_ENABLE" name="smsEnable" type="boolean" />
+          <property column="EMAIL_NOTIFICATION_ENABLE" name="emailEnable" type="boolean" />
+	</class>
+</hibernate-mapping>

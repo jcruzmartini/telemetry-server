@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.SimCard" table="SIMCARD">
+		<id column="ID_SIMCARD" name="id" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property column="NUMBER" name="number" type="string" />
+		<property column="COMPANY" name="company" type="string" />
+		<many-to-one class="com.techner.tau.server.domain.model.Customer" column="ID_CUSTOMER" name="customer" not-null="true" />
+		<property column="CREDIT_DUE_DAY" name="creditDueDay" type="integer" />
+	</class>
+</hibernate-mapping>

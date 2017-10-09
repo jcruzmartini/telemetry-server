@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.User" table="USER">
+		<id column="ID_USER" name="id">
+			<generator class="native" />
+		</id>
+		<property column="NAME" name="name" type="string" />
+		<property column="LAST_NAME" name="lastName" type="string" />
+		<property column="EMAIL" name="email" type="string" />
+		<property column="IS_ACTIVE" name="active" type="boolean" />
+		<many-to-one class="com.techner.tau.server.domain.model.SimCard" column="ID_SIMCARD" name="simCard" lazy="false" not-null="false"/>
+	</class>
+</hibernate-mapping>

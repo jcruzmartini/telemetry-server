@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+	<environment>test</environment>
+	<daemon>
+		<receptor>
+			<sleeptime>1800000</sleeptime>
+		</receptor>
+		<sender>
+			<sleeptime>1800000</sleeptime>
+		</sender>
+	</daemon>
+	<thread>
+		<receptor>
+			<sleeptime>15000</sleeptime>
+		</receptor>
+		<sender>
+			<sleeptime>15000</sleeptime>
+		</sender>
+	</thread>
+	<regexp>
+		<!-- Se deben escapear los caracteres epeciales en las expresiones regulars -->
+		<dailysummary>(D|R)[|]\\d{6}[|]\\d{2}[:]\\d{2}[|](meteovar)[:][-]?\\d{1\,4}([.]\\d{1\,4}){0\,1}([*](meteovar)[:][-]?\\d{1\,4}([.]\\d{1\,4}){0\,1})+[|]\\d{1\,2}</dailysummary>
+		<alert>A[|](alerttypes)[|][-]?\\d{1\,4}.\\d{0\,1}[|]\\d{1\,2}</alert>
+		<status>EST[|]\\d{6}[|]\\d{2}[:]\\d{2}[|](events)[|]\\S{1\,15}[|]\\d{1\,2}</status>
+		<reply>RTA[|]\\d{4}[|]\\d{1\,2}</reply>
+		<error>ERR[|]\\d{4}[|]\\d{1\,2}</error>
+	</regexp>
+	<variables>
+		<excluded>L</excluded>
+	</variables>
+	<sms>
+		<query>INFO</query>
+	</sms>
+	<error>
+		<generic>0</generic>
+	</error>
+	<email>
+		<config>
+			<hostname>smtp.gmail.com</hostname>
+			<ssl>true</ssl>
+			<tls>true</tls>
+			<port>465</port>
+			<from>info@techner.com.ar</from>
+			<name>Equipo de TECHNER</name>
+			<username>info@techner.com.ar</username>
+			<password>techner123</password>
+			<emailToReportError>soporte@techner.com.ar</emailToReportError>
+		</config>
+		<template>
+			<location>/etc/techner/tau-server/email/templates/</location>
+			<error>
+				<template>error.vm</template>
+				<subject>[TAU] [Error Critico] - Estación # </subject>
+			</error>
+			<warning>
+				<template>warning.vm</template>
+				<subject>[TAU] [Advertencia] - Estación # </subject>
+			</warning>
+			<information>
+				<template>information.vm</template>
+				<subject>[TAU] [Información] - Estación # </subject>
+			</information>
+			<periodicalmeasures>
+				<template>periodicalnotifications.vm</template>
+				<subject>[TAU] [Reporte Diario] - Estación :  </subject>
+			</periodicalmeasures>
+			<reporterror>
+				<template>reporterror.vm</template>
+				<subject>[TAU] </subject>
+			</reporterror>
+		</template>
+	</email>
+	<services>
+            <url>http://tau01.com/tau-services/</url>
+            <token>psJiOyqM5XvnSGkq998xpzeq</token>
+	</services>
+	<admin>
+	    <cel>5493415460866</cel>
+	    <cel>5493413091570</cel>
+	</admin>
+</server>

@@ -1,0 +1,16 @@
+<div style="width:600px;padding:1em"><div class="adM">
+</div><strong>Notificación importante</strong> enviada por <a href="https://www.techner.com.ar" style="color:blue" target="_blank">TAU Server</a>
+<div style="padding:10px 20px;margin-top:12px;font-family:arial;font-size:10pt;border:1px solid #d4dce8;border-top:4px solid #d4dce8">
+  <div style="font-family:arial;font-size:10pt">
+        <p style="color:#ff0000">$message</p>
+        <p><b>Estación involucrada:</b></p><pre>$station</pre>
+        <p><b>Cliente:</b></p><pre>$client</pre>
+  </div>
+</div>
+<br>
+  <div style="color:gray;font-size:8pt;font-family:arial;padding:10px 20px;background:#e7fabb;text-align:center">
+    Si no quiere recibir mas estos email por favor notifique a <b>soporte@techner.com.ar</b> </div>
+<p style="text-align:center;color:#f78222;font-size:10pt;font-family:arial">
+  <strong>Techner</strong> | Damos Valor a su Decisión
+</p><div class="yj6qo"></div><div class="adL">
+</div></div>

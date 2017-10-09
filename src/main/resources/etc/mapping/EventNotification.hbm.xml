@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.EventNotification" table="EVENT_NOTIFICATION">
+		<id column="ID_EVENT_NOTIFICATION" name="id">
+			<generator class="native" />
+		</id>
+		<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" />
+		 <many-to-one class="com.techner.tau.server.domain.model.RiskDescriptionComment" column="ID_RISK_DESCRIPTION_COMMENT" name="comment" />
+		<property column="VALUE" name="value" type="double" />
+		<property column="START_DATE" name="startDate" type="timestamp" />
+		 <property column="END_DATE" name="endDate" type="timestamp" />
+	</class>
+</hibernate-mapping>

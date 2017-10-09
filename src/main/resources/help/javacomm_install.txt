@@ -1,0 +1,17 @@
+Java Comm Installation
+
+The installation procedure for both the old Java Comm v2 and the new Java Comm v3 is identical.
+
+Java Comm v2 is for Win32 systems and it is available on the Download page.
+
+Java Comm v3 is for Linux systems and it is available for download directly from SUN downloads (registration is required)
+
+To install it, unzip the downloaded archive file in a temporary place and do the following copies:
+
+File comm.jar should go under JDKDIR/jre/lib/ext/
+File javax.comm.properties should go under JDKDIR/jre/lib/
+Library files (i.e. win32com.dll for Win32 or the .so Linux library files) should go under JDKDIR/jre/bin/
+If you have a separate JRE directory, do the same copies for the JREDIR directory!
+
+
+IMPORTANTE: LOS .so VAN UBICADOS EN JDKDIR/jre/bin/ Y en JDKDIR/jre/lib/i386

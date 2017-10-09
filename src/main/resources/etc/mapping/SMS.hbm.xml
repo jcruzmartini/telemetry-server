@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.SMS" table="SMS">
+		<id column="ID_SMS" name="id">
+			<generator class="native" />
+		</id>
+		<property column="DATE" name="date" type="timestamp" />
+		<property column="DELIVERED_AT" name="delivered_at" type="timestamp" />
+		<property column="SENT_AT" name="sent_at" type="timestamp" />
+		<property column="RECEIVED_AT" name="received_at" type="timestamp" />
+		<property column="FROME" name="from" type="string" />
+		<property column="STATE" name="state" type="string" />
+		<property column="TEXT" name="text" type="string" />
+		<property column="TOKEN_NUMBER" name="tokenNumber" type="integer" />
+		<property column="ERROR_CODE" name="errorCode" type="string" />
+		<property column="RETRIES" name="retries" type="integer" />
+		<property column="REF_NUMBER" name="refNo" type="string" />
+		<property column="SENT_BY_MODEM_ID" name="sentByModemId" type="string" />
+		<property column="CONFIRMATION_ID" name="confirmationId" type="string" />
+
+		<!-- HERENCIAS SMS CUSTOMER REQUEST -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSCustomerRequest" table="SMS_CUSTOMER_REQUEST">
+			<key column="ID_SMS" />
+			<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" lazy="false" />
+			<many-to-one class="com.techner.tau.server.domain.model.Customer" column="ID_CUSTOMER" name="customer" />
+			<many-to-one class="com.techner.tau.server.domain.model.SMSResponse" column="ID_SMS_RESPONSE" name="response" lazy="false" />
+		</joined-subclass>
+		<!-- HERENCIAS SMS RESPONSE -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSResponse" table="SMS_RESPONSE">
+			<key column="ID_SMS" />
+			<property column="TO_" name="to" type="string" />
+			<property column="FRIENDLYTEXT" name="friendlyText" type="string" />
+		</joined-subclass>
+		<!-- HERENCIAS SMS DAILY SUMMARY -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSDailySummary" table="SMS_DAILY_SUMMARY">
+			<key column="ID_SMS" />
+			<property column="TEST" name="test" type="string" />
+		</joined-subclass>
+		<!-- HERENCIAS SMS STATION EVENT -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSStationEvent" table="SMS_STATION_EVENT">
+			<key column="ID_SMS" />
+			<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" lazy="false" />
+			<many-to-one class="com.techner.tau.server.domain.model.Customer" column="ID_CUSTOMER" name="customer" lazy="false" />
+			<property column="ALERT_CODE" name="alertCode" type="string" />
+			<property column="VALUE" name="value" type="string" />
+		</joined-subclass>
+		<!-- HERENCIAS SMS STATUS EVENT -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSStatus" table="SMS_STATION_LOG">
+			<key column="ID_SMS" />
+			<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" lazy="false" />
+            <many-to-one class="com.techner.tau.server.domain.model.EventStatus" column="ID_EVENT_STATUS" name="event"  lazy="false"/>
+            <property column="DATE" name="date" type="timestamp" />
+			<property column="VALUE" name="value" type="string" />
+		</joined-subclass>
+		<!-- HERENCIAS SMS SERVER OPERATION -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSServerOperation" table="SMS_OPERATION">
+			<key column="ID_SMS" />
+			<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" lazy="false" />
+			<property column="SUCCESS" name="success" type="boolean" />
+		</joined-subclass>
+		<!-- HERENCIAS SMS ERROR -->
+		<joined-subclass name="com.techner.tau.server.domain.model.SMSError" table="SMS_ERROR">
+			<key column="ID_SMS" />
+			<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" lazy="false" />
+            <many-to-one class="com.techner.tau.server.domain.model.Error" column="ID_ERROR" name="error" lazy="false" />
+		</joined-subclass>
+	</class>
+</hibernate-mapping>

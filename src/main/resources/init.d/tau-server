@@ -1,0 +1,19 @@
+#!/bin/bash
+# processname: ${project.artifactId}
+# pidfile: /var/run/${project.artifactId}.pid
+
+basepath=/opt/${project.artifactId}/init.d
+
+case $1 in
+start)
+        sh $basepath/start.sh
+        ;;
+stop)
+        sh $basepath/stop.sh
+        ;;
+restart)
+        sh $basepath/stop.sh
+        sh $basepath/start.sh
+        ;;
+esac
+exit 0

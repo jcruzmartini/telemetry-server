@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.PeriodicalNotification" table="STATION_PERIODICAL_NOTIFICATION">
+		<id column="ID_STATION_PERIODICAL_NOTIFICATION" name="id">
+			<generator class="native" />
+		</id>
+		<property column="MONDAY" name="monday" type="boolean" />
+		<property column="TUESDAY" name="tuesday" type="boolean" />
+		<property column="WEDNESDAY" name="wednesday" type="boolean" />
+		<property column="THURSDAY" name="thursday" type="boolean" />
+		<property column="FRIDAY" name="friday" type="boolean" />
+		<property column="SATURDAY" name="saturday" type="boolean" />
+		<property column="SUNDAY" name="sunday" type="boolean" />
+		<property column="HOUR" name="hour" type="time" />
+		<property column="SMS_NOTIFICATION_ENABLE" name="smsEnable" type="boolean" />
+		<property column="EMAIL_NOTIFICATION_ENABLE" name="emailEnable" type="boolean" />
+		<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" not-null="true" lazy="false" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.Station" table="STATION">
+		<id column="ID_STATION" name="id">
+			<generator class="native" />
+		</id>
+		<property column="ENABLE" name="enable" type="boolean" />
+		<many-to-one class="com.techner.tau.server.domain.model.SimCard" column="ID_SIMCARD" name="simCard" lazy="false" />
+		<many-to-one class="com.techner.tau.server.domain.model.Customer" column="ID_CUSTOMER" name="customer" not-null="true" lazy="false" />
+		<many-to-one class="com.techner.tau.server.domain.model.AditionalInformation" column="ID_STATION_INFORMATION" name="information" cascade="save-update"  lazy="false" />
+	</class>
+</hibernate-mapping>

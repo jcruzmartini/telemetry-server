@@ -1,0 +1,20 @@
+<div style="width:600px;padding:1em"><div class="adM">
+</div><strong>Reporte de error </strong> enviado por <a href="https://www.techner.com.ar" style="color:blue" target="_blank">TAU Server</a>
+<div style="padding:10px 20px;margin-top:12px;font-family:arial;font-size:10pt;border:1px solid #d4dce8;border-top:4px solid #d4dce8">
+  <div style="font-family:arial;font-size:10pt">
+        <p><b>Fecha:</b></p><p>$date</p>
+        <p><b>Hostname:</b></p><p>$hostname</p>
+        <p><b>Ambiente:</b></p><p>$environment</p>
+        <p><b>Error:</b></p><p>$message</p>
+        <p><b>Clase:</b></p><p>$class</p>
+        <p><b>Archivo:</b></p><p>$file</p>
+        <p><b>Línea:</b></p><p>$line</p>
+        <p><b>Método:</b></p><p>$method</p>
+        <p><b>Stacktrace: :</b></p><p>$stacktrace</p>
+  </div>
+</div>
+<br>
+<p style="text-align:center;color:#f78222;font-size:10pt;font-family:arial">
+  <strong>Techner</strong> | Damos Valor a su Decisión
+</p><div class="yj6qo"></div><div class="adL">
+</div></div>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.Variable" table="VARIABLE">
+		<id column="ID_VARIABLE" name="id">
+			<generator class="native" />
+		</id>
+		<property column="DESCRIPTION" name="description" type="string" />
+		<property column="SMS_DESCRIPTION" name="smsDescription" type="string" />
+		<property column="SHORT_DESCRIPTION" name="shortDescription" type="string" />
+		<property column="UNIT" name="unit" type="string" />
+		<property column="CODE" name="code" type="string" />
+		<property column="IS_METEOROLOGICAL" name="meteorological" type="boolean" />
+	</class>
+</hibernate-mapping>

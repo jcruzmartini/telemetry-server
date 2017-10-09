@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.RiskDescriptionComment" table="RISK_DESCRIPTION_COMMENT">
+		<id column="ID_RISK_DESCRIPTION_COMMENT" name="id">
+			<generator class="native" />
+		</id>
+		<many-to-one class="com.techner.tau.server.domain.model.Notification" column="ID_NOTIFICATION" name="notification" />
+        <property column="DESCRIPTION" name="description" type="string" />
+		<property column="RISK" name="risk" type="string" />
+	</class>
+</hibernate-mapping>

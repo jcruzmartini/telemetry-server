@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.Measure" table="MEASURES">
+		<id column="ID_MEASURE" name="id">
+			<generator class="native" />
+		</id>
+		<many-to-one class="com.techner.tau.server.domain.model.Station" column="ID_STATION" name="station" />
+		<many-to-one class="com.techner.tau.server.domain.model.Variable" column="ID_VARIABLE" name="variable" not-null="true" lazy="false" />
+		<property column="VALUE" name="value" type="double" />
+		<property column="DATE" name="date" type="timestamp" />
+		<property column="IS_CALCULATED" name="calculated" type="boolean" />
+	</class>
+</hibernate-mapping>

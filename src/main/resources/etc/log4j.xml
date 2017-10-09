@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+
+	<!-- show log entries on console -->
+     <appender name="console" class="org.apache.log4j.ConsoleAppender">
+          <param name="threshold" value="info" />
+          <layout class="org.apache.log4j.PatternLayout">
+        	<param name="ConversionPattern" value="%d{DATE} | %-5.5p | %-16.16t | %-32.32c{1} | %m%n" />
+          </layout>
+     </appender>
+
+	<appender name="errorFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="MaxFileSize" value="2000000KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="File" value="/var/log/techner/${project.artifactId}/${project.artifactId}.err" />
+		<param name="threshold" value="error" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} | %5p | %c{1}:%L | %m%n" />
+		</layout>
+	</appender>
+	<appender name="infoFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="MaxFileSize" value="200000KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="File" value="/var/log/techner/${project.artifactId}/${project.artifactId}.info" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} | %-5.5p | %-16.16t | %-32.32c{1} | %-32.32C %4L | %m%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="LevelMin" value="info" />
+			<param name="LevelMax" value="info" />
+		</filter>
+	</appender>
+	<appender name="smslib" class="org.apache.log4j.RollingFileAppender">
+		<param name="MaxFileSize" value="200000KB" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="threshold" value="info" />
+		<param name="File" value="/var/log/techner/${project.artifactId}/smslib.log" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} | %-5.5p | %-16.16t | %-32.32c{1} | %-32.32C %4L | %m%n" />
+		</layout>
+	</appender>
+	<appender name="logFile" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="/var/log/techner/${project.artifactId}/${project.artifactId}.log" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="MaxFileSize" value="200000KB" />
+		<param name="threshold" value="debug" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{DATE} | %5p | %c{1}:%L | %m%n" />
+		</layout>
+	</appender>
+
+	<root>
+		<!-- <appender-ref ref="console" /> -->
+		<appender-ref ref="logFile" />
+		<appender-ref ref="infoFile" />
+		<appender-ref ref="errorFile" />
+	</root>
+</log4j:configuration>

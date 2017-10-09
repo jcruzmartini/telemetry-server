@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.SunriseSunsetInformation" table="SUNRISE_SUNSET_INFORMATION">
+		<id column="ID_SUNRISE_SUNSET_INFORMATION" name="id">
+			<generator class="native" />
+		</id>
+		<property column="SUNRISE" name="sunriseTime" type="timestamp" />
+		<property column="SUNSET" name="sunsetTime" type="timestamp" />
+		<property column="DATE" name="date" type="date" />
+		<many-to-one name="information" class="com.techner.tau.server.domain.model.AditionalInformation" fetch="select">
+			<column name="ID_STATION_INFORMATION" not-null="true" />
+		</many-to-one>
+	</class>
+</hibernate-mapping>

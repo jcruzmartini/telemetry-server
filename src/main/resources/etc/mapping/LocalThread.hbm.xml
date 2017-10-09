@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.LocalThread" table="THREAD">
+		<id column="ID_THREAD" name="id">
+			<generator class="native" />
+		</id>
+		<property column="TYPE" name="type" type="string" />
+		<property column="ENABLE" name="enable" type="boolean" />
+		<property column="NAME" name="name" type="string" />
+		<many-to-one class="com.techner.tau.server.domain.model.ModemGSM" column="ID_GSMMODEM" name="modem" lazy="false" />
+	</class>
+</hibernate-mapping>

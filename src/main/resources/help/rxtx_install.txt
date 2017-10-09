@@ -1,0 +1,14 @@
+RxTx Installation
+
+The official RxTx binary pack is available here. The provided link will download the distro with some standard binaries (
+for linux 32bit, 64 bit, etc). If binaries for your specific operating system are not included, you may consider recompiling RxTx yourselves.
+
+For a custom Win64 RxTx distro, have a look at the CloudHopper's web site.
+
+To install it, unzip the distribution file in a temporary place and do the following copies:
+
+File RXTXcomm.jar should go under JDKDIR/jre/lib/ext/
+The necessary library (e.g.. for Linux 32bit, the librxtxSerial.so) should go under JDKDIR/jre/bin/
+If you have a separate JRE directory, do the same copies for the JREDIR directory!
+
+IMPORTANTE: LOS .so VAN UBICADOS EN JDKDIR/jre/bin/ Y en JDKDIR/jre/lib/i386

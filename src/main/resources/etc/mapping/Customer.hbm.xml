@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.Customer" table="CUSTOMER">
+		<id column="ID_CUSTOMER" name="id">
+			<generator class="native" />
+		</id>
+		<property column="NAME" name="name" type="string" />
+		<property column="LAST_NAME" name="lastName" type="string" />
+		<property column="ADDRESS" name="address" type="string" />
+		<property column="PROVINCE" name="province" type="string" />
+		<property column="CITY" name="city" type="string" />
+		<property column="STATUS" name="status" type="string" />
+		<bag cascade="none" name="simCards" inverse="true" lazy="false">
+			<key column="ID_CUSTOMER" />
+			<one-to-many class="com.techner.tau.server.domain.model.SimCard" />
+		</bag>
+		<bag cascade="none" name="emails" inverse="true" lazy="false">
+			<key column="ID_CUSTOMER" />
+			<one-to-many class="com.techner.tau.server.domain.model.Email" />
+		</bag>
+		<bag cascade="none" name="stations" inverse="true" lazy="false">
+			<key column="ID_CUSTOMER" />
+			<one-to-many class="com.techner.tau.server.domain.model.Station" />
+		</bag>
+	</class>
+</hibernate-mapping>

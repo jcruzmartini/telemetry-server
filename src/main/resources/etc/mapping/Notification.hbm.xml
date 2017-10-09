@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.Notification" table="NOTIFICATION">
+		<id column="ID_NOTIFICATION" name="id">
+			<generator class="native" />
+		</id>
+		<property column="DESCRIPTION" name="description" type="string" />
+		<property column="CODE" name="code" type="string" />
+	</class>
+</hibernate-mapping>

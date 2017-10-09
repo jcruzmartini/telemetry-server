@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.ModemGSM" table="GSMMODEM">
+		<id column="ID_GSMMODEM" name="id">
+			<generator class="native" />
+		</id>
+		<property column="BRANCH" name="branch" type="string" />
+		<property column="MODEL" name="model" type="string" />
+		<property column="PORT" name="port" type="string" />
+		<property column="BAUDIOS" name="baudios" type="integer" />
+		<property column="PIN_SIM" name="pinSim" type="string" />
+		<property column="ENABLE" name="enable" type="boolean" />
+		<many-to-one class="com.techner.tau.server.domain.model.SimCard" column="ID_SIMCARD" name="simCard" lazy="false" />
+		<property column="IS_SENDER" name="outbound" type="boolean" />
+		<property column="IS_RECEIVER" name="inbound" type="boolean" />
+	</class>
+</hibernate-mapping>

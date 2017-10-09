@@ -1,0 +1,52 @@
+<div style="width:90%;padding:1em;font-family:Tahoma, Geneva, sans-serif; font-size:10pt;"><div class="adM">
+</div><strong>Reporte diario de medidas</strong> enviada por los <a href="http://www.tau01.com" style='color:#428F37;text-decoration:none;' target="_blank"><strong>Servicios TAU</strong></a>
+<div style="padding:10px 20px;margin-top:12px;border:1px solid #77AC34;border-top:4px solid #77AC34;font-family:Tahoma, Geneva, sans-serif; font-size:10pt;">
+  <div>
+      <p><b>Estación involucrada:</b></p><pre>$station</pre>
+      <p><b>Cliente:</b></p><pre>$client</pre>
+      <br />
+      <br />
+      <br />
+        <table id="measures" style="width:100%;">
+        <thead style="background:#e7fabb;text-align:center">
+            <tr>
+                <th rowspan="2" id="variable"><p>Variable</p></th>
+                <th scope="col" rowspan="2" id="medida"><p>Actual</p></th>
+                <th scope="col" colspan="3" id="diario"><p>Diario</p></th>
+            </tr>
+            <tr>
+                <th scope="col" id="max"><p>M&aacute;ximo </p></th>
+                <th scope="col" id="min"><p>M&iacute;nimo </p></th>
+              <th scope="col" id="prom"><p>Promedio </p></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                  <td colspan="5">
+                        <div style="color:gray;padding:10px 20px;font-size:8pt;background:#e7fabb;text-align:center"> Medidas obtenidas a las  $date</div>
+                </td>
+            </tr>
+        </tfoot>
+        <tbody style="text-align:center">
+            #foreach( $measure in $listMeasures )
+                <tr>
+                    <td style="text-align:left">$measure.variable</td>
+                    <td>$measure.actual</td>
+                    <td>$measure.max</td>
+                    <td>$measure.min</td>
+                    <td>$measure.avg</td>
+                </tr>
+             #end
+        </tbody>
+        </table>
+  </div>
+</div>
+<br>
+  <div style="color:gray;font-size:8pt;padding:10px 20px;background:#e7fabb;text-align:center">
+    Si no quiere recibir mas estos email por favor notifique a <strong>soporteclientes@techner.com.ar</strong> </div>
+  <a href='http://www.techner.com.ar' target='_blank' style='text-decoration: none'>
+    <p style="text-align:center;color:#f78222;">
+      <strong>Techner</strong> | Damos Valor a su Decisi&oacute;n
+    </p>
+  </a>
+</div>

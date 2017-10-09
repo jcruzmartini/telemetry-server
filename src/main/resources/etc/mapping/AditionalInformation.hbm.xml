@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.AditionalInformation" table="STATION_INFORMATION">
+		<id column="ID_STATION_INFORMATION" name="id">
+			<generator class="native" />
+		</id>
+		<property column="LONGITUDE" name="longitude" type="double" />
+		<property column="LATITUDE" name="latitude" type="double" />
+		<property column="ALTITUDE" name="altitude" type="double" />
+		<property column="LOCATION_NAME" name="location" type="string" />
+		<set name="sunriseSunsetInfo" table="SUNRISE_SUNSET_INFORMATION" cascade="save-update" inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="ID_STATION_INFORMATION" not-null="true" />
+			</key>
+			<one-to-many class="com.techner.tau.server.domain.model.SunriseSunsetInformation" />
+		</set>
+	</class>
+</hibernate-mapping>

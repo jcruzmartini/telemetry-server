@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.techner.tau.server.domain.model.Alert" table="ALERT">
+		<id column="ID_ALERT" name="id">
+			<generator class="native" />
+		</id>
+		<property column="CODE" name="code" type="string" />
+		<many-to-one class="com.techner.tau.server.domain.model.Variable" column="ID_VARIABLE" name="variable" lazy="false" />
+		<property column="ALERT_DESCRIPTION" name="alertDescription" type="string" />
+		<property column="CHECK_IN" name="checkIn" type="string" />
+	</class>
+</hibernate-mapping>
